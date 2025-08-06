@@ -17,8 +17,10 @@ This workflow pipeline does the inegration of metataxonomic and transcriptomics 
 
 # Make bin dir executable
 chmod +x bin/*
-# Activate previously installed conda envirormente with nextflow
-conda activate nextflow
+# Pre-create conda envirorments
+mamba env create -f envs/microtrans.yml --name microtrans
+# Activate microtrans envirorment 
+mamba activate microtrans
 # Run
 nextflow run workflows/main.nf -c config/nextflow.config 
 
